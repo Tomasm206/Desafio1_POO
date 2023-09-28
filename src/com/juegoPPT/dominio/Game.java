@@ -8,7 +8,7 @@ public class Game {
     private static ImageIcon icon = new ImageIcon(Game.class.getResource("PPTimg.png"));
     private static final Object[] OPCIONES = Arrays.asList("Ver Instrucciones", "Jugar", "Ver Resultados").toArray();
     public static int mostrarMenu() {
-        int opcion = JOptionPane.showOptionDialog(null, "¡Bienvenido!\nJuego Piedra, Papel o Tijera",
+        int opcion = JOptionPane.showOptionDialog(null, "¡Bienvenido!\nEscoge una opción.",
                 "PIEDRA, PAPEL O TIJERA" , 0,
                 JOptionPane.QUESTION_MESSAGE, icon, OPCIONES, null);
         if (opcion == JOptionPane.CLOSED_OPTION) {
@@ -31,22 +31,22 @@ public class Game {
         String[] options = { "Piedra", "Papel", "Tijeras" };
         Random compu = new Random();
         int seleccion = compu.nextInt(options.length);
-        String jugador = JOptionPane.showInputDialog(null, "Has tu jugada","PIEDRA, PAPEL O TIJERA", JOptionPane.QUESTION_MESSAGE, icon, options, options[0]).toString();
+        String jugador = JOptionPane.showInputDialog(null, "Haz tu jugada.","PIEDRA, PAPEL O TIJERA", JOptionPane.QUESTION_MESSAGE, icon, options, options[0]).toString();
         JOptionPane.showMessageDialog(null, Jugada.comprobarJugada(options[seleccion], jugador, 0), "PIEDRA, PAPEL O TIJERA", JOptionPane.INFORMATION_MESSAGE,icon);
     }
     public static void resultados(){
         JOptionPane.showMessageDialog(null,
                 "Los resultados son" + "\n"
-                +"La Maquina obtuvo --> " + Jugada.getPuntajeMaquina() + "\n"
+                +"La Máquina obtuvo --> " + Jugada.getPuntajeMaquina() + "\n"
                 +"El Jugador obtuvo --> " + Jugada.getPuntajeJugador() + "\n"
                 +ganador(Jugada.getPuntajeMaquina(),Jugada.getPuntajeJugador())
                 , "PIEDRA, PAPEL O TIJERA", JOptionPane.INFORMATION_MESSAGE,icon);
     }
     public static String ganador(int puntajeMaquina, int puntajeJugador) {
         if (puntajeMaquina == puntajeJugador) {
-            return "La Maquina y el Jugador quedaron empatados";
+            return "La Máquina y el Jugador quedaron empatados";
         } else if (puntajeMaquina > puntajeJugador) {
-            return "La Maquina quedó ganadora";
+            return "La Máquina quedó ganadora";
         } else {
             return "El Jugador quedó ganador";
         }

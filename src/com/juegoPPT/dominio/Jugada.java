@@ -4,12 +4,14 @@ public class Jugada {
     private static int puntajeMaquina;
     private static int puntajeJugador;
     public static String comprobarJugada(String jugadaMaquina, String jugadaJugador, int jugador) {
-        String [] players = {"Maquina", "Jugador"};
+        String [] players = {"Máquina", "Jugador"};
         boolean comprobar = (jugador != 0); //Si el jugador es 0, bool False <--> Si es 1, bool True
         if (jugadaMaquina.equals(jugadaJugador)) {
             puntajeMaquina++;
             puntajeJugador++;
-            return "Empate";
+            return  players[0] + " escogió --> " + jugadaMaquina + "\n" +
+                    players[1] + " escogió --> " + jugadaJugador + "\n" +
+                    "Ambos Jugadores quedaron empatados.";
         } else if ((jugadaMaquina.equals("Piedra") && jugadaJugador.equals("Tijeras")) ||
                 (jugadaMaquina.equals("Papel") && jugadaJugador.equals("Piedra")) ||
                 (jugadaMaquina.equals("Tijeras") && jugadaJugador.equals("Papel"))) {
