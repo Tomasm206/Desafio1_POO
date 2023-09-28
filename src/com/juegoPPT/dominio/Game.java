@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.util.Arrays;
 import java.util.Random;
 
-public class PPT {
-    private static ImageIcon icon = new ImageIcon(PPT.class.getResource("PPTimg.png"));
+public class Game {
+    private static ImageIcon icon = new ImageIcon(Game.class.getResource("PPTimg.png"));
     private static final Object[] OPCIONES = Arrays.asList("Ver Instrucciones", "Jugar", "Ver Resultados").toArray();
     public static int mostrarMenu() {
         int opcion = JOptionPane.showOptionDialog(null, "¡Bienvenido!\nJuego Piedra, Papel o Tijera",
@@ -35,8 +35,6 @@ public class PPT {
         JOptionPane.showMessageDialog(null, Jugada.comprobarJugada(options[seleccion], jugador, 0), "PIEDRA, PAPEL O TIJERA", JOptionPane.INFORMATION_MESSAGE,icon);
     }
     public static void resultados(){
-        System.out.println(Jugada.getPuntajeMaquina());
-        System.out.println(Jugada.getPuntajeJugador());
         JOptionPane.showMessageDialog(null,
                 "Los resultados son" + "\n"
                 +"La Maquina obtuvo --> " + Jugada.getPuntajeMaquina() + "\n"
@@ -52,5 +50,16 @@ public class PPT {
         } else {
             return "El Jugador quedó ganador";
         }
+    }
+    //Programa Principal
+    public static void programaPrincipal(){
+        do {
+            int opcionElegida = Game.mostrarMenu();
+            switch (opcionElegida) {
+                case 0 -> Game.instrucciones();
+                case 1 -> Game.jugar();
+                case 2 -> Game.resultados();
+            }
+        }while(true);
     }
 }
