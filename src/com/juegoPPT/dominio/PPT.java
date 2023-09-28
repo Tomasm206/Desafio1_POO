@@ -53,5 +53,4 @@ public class PPT {
             return "El Jugador quedó ganador";
         }
     }
-
 }
