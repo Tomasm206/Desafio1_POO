@@ -13,7 +13,7 @@ public class Calculadora {
 
     public static int mostrarMenu() {
         Object[] OPCIONES = Arrays.asList("Sumar", "Restar", "Multiplicar", "Dividir", checkBox).toArray();
-        int opcion = JOptionPane.showOptionDialog(null, "¡Bienvenido!\n¿Qué operación quieres realizar?\n",
+        int opcion = JOptionPane.showOptionDialog(null, "¡Bienvenido!\n¿Qué operación desea realizar?\n",
                 "CALCULADORA" , 0,
                 JOptionPane.QUESTION_MESSAGE, icono, OPCIONES, null);
         if (opcion == JOptionPane.CLOSED_OPTION) {
@@ -27,7 +27,6 @@ public class Calculadora {
     public static double recibirNumero(String mensaje) {
         double numeroARetornar = 0;
         boolean numeroValido = false;
-
         do {
             try {
                 numeroARetornar = Double.parseDouble(JOptionPane.showInputDialog(mensaje));
